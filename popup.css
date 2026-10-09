@@ -1,0 +1,143 @@
+:root {
+  --bg: #ffffff;
+  --fg: #1f2328;
+  --muted: #6b7280;
+  --line: #e5e7eb;
+  --stripe: #f6f8fa;
+  --field: #ffffff;
+  --accent: #bf1e2e;
+  --error: #b42318;
+  color-scheme: light dark;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #1c1b22;
+    --fg: #e8e6e3;
+    --muted: #9ca3af;
+    --line: #34333b;
+    --stripe: #24232b;
+    --field: #2b2a33;
+    --accent: #f2545f;
+    --error: #ff8a80;
+  }
+}
+
+* { box-sizing: border-box; }
+
+body {
+  width: 400px;
+  margin: 0;
+  padding: 8px;
+  background: var(--bg);
+  color: var(--fg);
+  font: 13px/1.35 system-ui, -apple-system, "Segoe UI", Ubuntu, sans-serif;
+}
+
+header {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+
+#q {
+  flex: 1;
+  min-width: 0;
+  padding: 6px 8px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: var(--field);
+  color: var(--fg);
+  font: inherit;
+  font-size: 14px;
+  outline: none;
+}
+
+#q:focus { border-color: var(--accent); }
+
+#open {
+  flex: none;
+  padding: 2px 6px;
+  color: var(--accent);
+  text-decoration: none;
+  font-size: 15px;
+}
+
+#open[hidden] { display: none; }
+
+#status {
+  margin: 6px 2px 0;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+#status:empty { display: none; }
+#status.error { color: var(--error); }
+
+#grant {
+  width: 100%;
+  margin-top: 8px;
+  padding: 6px;
+  border: 1px solid var(--accent);
+  border-radius: 6px;
+  background: transparent;
+  color: var(--accent);
+  font: inherit;
+  cursor: pointer;
+}
+
+#grant[hidden], #suggest[hidden], #results[hidden] { display: none; }
+
+#suggest {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin-top: 6px;
+}
+
+#suggest button {
+  padding: 2px 8px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--field);
+  color: var(--fg);
+  font: inherit;
+  cursor: pointer;
+}
+
+#suggest button:hover { border-color: var(--accent); }
+
+#results {
+  width: 100%;
+  margin-top: 6px;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+#results td {
+  padding: 3px 6px;
+  border-bottom: 1px solid var(--line);
+  vertical-align: top;
+  overflow-wrap: anywhere;
+}
+
+#results tr:nth-child(even) td { background: var(--stripe); }
+
+#results .cat {
+  width: 104px;
+  color: var(--muted);
+  font-size: 11.5px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+#results .src { width: 42%; }
+
+#results i {
+  margin-left: 3px;
+  color: var(--muted);
+  font-size: 11.5px;
+}
+
+#results.busy { opacity: 0.55; }

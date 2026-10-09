@@ -1,0 +1,29 @@
+{
+  "manifest_version": 3,
+  "name": "Mini Sözlük",
+  "version": "1.0.0",
+  "description": "Araç çubuğundan hızlı İngilizce–Türkçe sözlük. Tureng'den en fazla 10 sonuç gösterir.",
+  "icons": {
+    "48": "icons/icon.svg",
+    "96": "icons/icon.svg"
+  },
+  "action": {
+    "default_title": "Mini Sözlük",
+    "default_popup": "popup.html",
+    "default_icon": "icons/icon.svg",
+    "default_area": "navbar"
+  },
+  "host_permissions": ["https://tureng.com/*"],
+  "content_security_policy": {
+    "extension_pages": "default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self'; connect-src https://tureng.com; base-uri 'none'; form-action 'none'"
+  },
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "{4f496cdd-2d75-46f5-b5ac-b5677439d922}",
+      "strict_min_version": "140.0",
+      "data_collection_permissions": {
+        "required": ["searchTerms"]
+      }
+    }
+  }
+}

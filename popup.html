@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mini Sözlük</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header>
+    <input id="q" type="search" autocomplete="off" spellcheck="false" maxlength="80"
+           placeholder="İngilizce veya Türkçe kelime yaz…" aria-label="Aranacak kelime" autofocus>
+    <a id="open" href="https://tureng.com/" target="_blank" rel="noopener noreferrer"
+       title="Tüm sonuçları tureng.com'da aç" hidden>↗</a>
+  </header>
+
+  <button id="grant" type="button" hidden>tureng.com erişimine izin ver</button>
+  <p id="status" role="status" aria-live="polite"></p>
+  <div id="suggest" hidden></div>
+  <table id="results" hidden>
+    <tbody id="rows"></tbody>
+  </table>
+
+  <script src="popup.js"></script>
+</body>
+</html>
